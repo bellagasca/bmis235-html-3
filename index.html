@@ -47,8 +47,339 @@ SO in rememberance of them, I decided to make a website for our lovely home, Dus
 </p>
 
 <!-- ===== SHOWCASE ======================================================
-     This box is empty on purpose. In Part 7 you paste an interactive
-     graphic BETWEEN the opening <div> and the closing </div> below.
+     
+<!-- HTML: A dramatic memorial page for the three departed roommates. -->
+<div class="showcase">
+  <div class="memorial-header">
+    <div class="memorial-kicker">✦ IN LOVING MEMORY ✦</div>
+    <div class="memorial-title">GONE TOO SOON.</div>
+    <div class="memorial-subtitle">
+      They came. They lived. They left for abroad.
+    </div>
+    <div class="memorial-divider">━━━━━━━━ ✝ ━━━━━━━━</div>
+    <div class="memorial-dates">
+      REMEMBERING THE ROOMMATES WE LOST · SPRING 2027
+    </div>
+  </div>
+
+  <div class="memorial-grid">
+
+    <div class="memorial-card">
+      <button class="memorial-photo" type="button"
+        aria-label="Toggle mourning for Kennedy">
+        <img src="kennedy.jpg" alt="Kennedy">
+        <div class="rain"></div>
+        <div class="photo-caption">R.I.P.</div>
+      </button>
+      <div class="memorial-name">KENNEDY</div>
+      <div class="memorial-role">Forever missed. Unfortunately.</div>
+      <div class="memorial-status">✝ DEPARTED ✝</div>
+    </div>
+
+    <div class="memorial-card">
+      <button class="memorial-photo" type="button"
+        aria-label="Toggle mourning for Gemma">
+        <img src="gemma.jpg" alt="Gemma">
+        <div class="rain"></div>
+        <div class="photo-caption">R.I.P.</div>
+      </button>
+      <div class="memorial-name">GEMMA</div>
+      <div class="memorial-role">Taken from us by international travel.</div>
+      <div class="memorial-status">✝ DEPARTED ✝</div>
+    </div>
+
+    <div class="memorial-card">
+      <button class="memorial-photo" type="button"
+        aria-label="Toggle mourning for Amy">
+        <img src="amy.jpg" alt="Amy">
+        <div class="rain"></div>
+        <div class="photo-caption">R.I.P.</div>
+      </button>
+      <div class="memorial-name">AMY</div>
+      <div class="memorial-role">Gone abroad. Never forgotten.</div>
+      <div class="memorial-status">✝ DEPARTED ✝</div>
+    </div>
+
+  </div>
+
+  <div class="memorial-footer">
+    <div class="footer-cross">✝</div>
+    <div class="footer-main">THE HOUSE WILL NEVER BE THE SAME.</div>
+    <div class="footer-small">
+      PLEASE KEEP THE LONE SURVIVOR IN YOUR THOUGHTS AND PRAYERS.
+    </div>
+    <div class="footer-small">
+      CLICK THEIR PHOTOS TO PAY YOUR RESPECTS.
+    </div>
+  </div>
+</div>
+
+<style>
+/* CSS: Cream and black funeral styling, photo effects, and animated rain. */
+
+.showcase {
+  background: #f3eedf;
+  color: #171714;
+  font-family: Georgia, 'Times New Roman', serif;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 26px 18px;
+  border: 2px solid #171714;
+  overflow: hidden;
+}
+
+.showcase * {
+  box-sizing: border-box;
+}
+
+.showcase .memorial-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.showcase .memorial-kicker {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.showcase .memorial-title {
+  font-size: clamp(30px, 7vw, 55px);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.showcase .memorial-subtitle {
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 9px;
+}
+
+.showcase .memorial-divider {
+  font-size: 13px;
+  margin: 13px 0;
+}
+
+.showcase .memorial-dates {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.showcase .memorial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.showcase .memorial-card {
+  text-align: center;
+  min-width: 0;
+}
+
+.showcase .memorial-photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  padding: 0;
+  border: 3px solid #171714;
+  background: #171714;
+  cursor: pointer;
+}
+
+.showcase .memorial-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.8s ease;
+}
+
+.showcase .memorial-photo.mourning img {
+  filter: grayscale(100%) contrast(1.15) brightness(0.75);
+}
+
+.showcase .rain {
+  position: absolute;
+  inset: -100px 0 0 0;
+  opacity: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      105deg,
+      transparent 0px,
+      transparent 9px,
+      rgba(220, 225, 230, 0.65) 10px,
+      transparent 11px,
+      transparent 19px
+    );
+  background-size: 25px 35px;
+  transition: opacity 0.6s ease;
+}
+
+.showcase .memorial-photo.mourning .rain {
+  opacity: 0.7;
+}
+
+.showcase .photo-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12px;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  text-shadow: 1px 2px 5px black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.showcase .memorial-photo.mourning .photo-caption {
+  opacity: 1;
+}
+
+.showcase .memorial-name {
+  font-size: clamp(15px, 2.8vw, 22px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 11px;
+}
+
+.showcase .memorial-role {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  line-height: 1.4;
+  margin-top: 5px;
+  min-height: 28px;
+}
+
+.showcase .memorial-status {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.showcase .memorial-footer {
+  text-align: center;
+  border-top: 1px solid #171714;
+  margin-top: 24px;
+  padding-top: 14px;
+}
+
+.showcase .footer-cross {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.showcase .footer-main {
+  font-size: clamp(12px, 2.8vw, 18px);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.showcase .footer-small {
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin-top: 7px;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .showcase {
+    padding: 20px 10px;
+  }
+
+  .showcase .memorial-grid {
+    gap: 8px;
+  }
+
+  .showcase .memorial-kicker {
+    letter-spacing: 3px;
+  }
+
+  .showcase .memorial-dates {
+    letter-spacing: 1px;
+    font-size: 8px;
+  }
+
+  .showcase .memorial-role {
+    font-size: 9px;
+  }
+
+  .showcase .memorial-status {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+</style>
+
+<script>
+/* JavaScript: Clicking each portrait toggles its grayscale mourning effect and rain. */
+
+(function () {
+  const showcase = document.currentScript.previousElementSibling
+    .previousElementSibling;
+
+  if (!showcase || !showcase.classList.contains('showcase')) return;
+
+  const photos = showcase.querySelectorAll('.memorial-photo');
+  let rainFrame;
+
+  photos.forEach(function (photo) {
+    photo.setAttribute('aria-pressed', 'false');
+
+    photo.addEventListener('click', function () {
+      photo.classList.toggle('mourning');
+
+      const isMourning = photo.classList.contains('mourning');
+      photo.setAttribute('aria-pressed', String(isMourning));
+
+      if (isMourning && !rainFrame) {
+        animateRain();
+      }
+    });
+  });
+
+  function animateRain() {
+    let position = 0;
+
+    function update() {
+      const mourningPhotos = showcase.querySelectorAll(
+        '.memorial-photo.mourning .rain'
+      );
+
+      if (!mourningPhotos.length) {
+        rainFrame = null;
+        return;
+      }
+
+      position += 2;
+
+      mourningPhotos.forEach(function (rain) {
+        rain.style.backgroundPosition = '0 ' + position + 'px';
+      });
+
+      rainFrame = requestAnimationFrame(update);
+    }
+
+    rainFrame = requestAnimationFrame(update);
+  }
+})();
+</script>
+
      ===================================================================== -->
 <div class="showcase"></div>
 
